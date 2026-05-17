@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alma de Miga | Cerveza Artesanal de Pan</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg sticky-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#" onclick="navegarA('hero')">
+        <img src="cerveza.jpg" alt="Alma de Miga Logo" class="logo-nav me-2 rounded-circle border border-gold">
+        <span class="fw-bold text-forest">Alma de Miga</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center" id="main-nav">
+          <li class="nav-item"><a class="nav-link active" href="#" data-target="hero">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" data-target="filosofia">Filosofía</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" data-target="proceso">Proceso</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" data-target="historia">Historia</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" data-target="catalogo">Catálogo</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" data-target="ubicacion">Ubicación</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" data-target="contacto">Contacto</a></li>
+          <li class="nav-item ms-lg-3">
+            <button class="btn btn-cart position-relative shadow-sm" data-bs-toggle="modal" data-bs-target="#cartModal">
+              <i class="fa-solid fa-basket-shopping"></i>
+              <span id="cart-count"
+                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="content-wrapper">
+
+    <section id="hero" class="app-section active-section section-dark">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6 text-white text-center text-lg-start">
+            <span class="badge bg-gold mb-3 px-3 py-2 text-dark fw-bold text-uppercase tracking-wider">Sustentable y
+              Artesanal</span>
+            <h1 class="display-4 fw-bold mb-3 text-white">El Valor de una <br><span class="text-gold">Segunda
+                Oportunidad</span></h1>
+            <p class="lead mb-4 text-light-muted">Transformamos el excedente de pan artesanal en una cerveza con alma,
+              carácter y un sabor extraordinario. Descubre el ciclo de la miga.</p>
+            <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center justify-content-lg-start">
+              <button onclick="navegarA('catalogo')"
+                class="btn btn-gold btn-lg px-4 py-3 fw-bold text-uppercase shadow">Probar Cervezas</button>
+              <button onclick="navegarA('proceso')"
+                class="btn btn-outline-light-custom btn-lg px-4 py-3 fw-bold text-uppercase">Nuestro Secreto</button>
+            </div>
+          </div>
+          <div class="col-lg-6 text-center">
+            <div class="hero-img-container">
+              <img src="cerveza.jpg" alt="Mascota Alma de Miga"
+                class="img-fluid rounded-circle hero-img shadow-lg border border-4 border-gold">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="filosofia" class="app-section section-cream">
+      <div class="container">
+        <div class="text-center max-w-xl mx-auto mb-5">
+          <span class="text-gold fw-bold text-uppercase tracking-wider d-block mb-2">Propósito</span>
+          <h2 class="section-title h1 text-forest mb-2">Nuestra Filosofía</h2>
+          <div class="title-line"></div>
+          <p class="text-dark-muted fs-5">Combatimos el desperdicio de alimentos transformándolo en arte líquido.</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div
+              class="card h-100 border-0 shadow p-4 p-xl-5 card-hover position-relative overflow-hidden transition-all"
+              style="border-left: 5px solid #2d5016; background: linear-gradient(135deg, #f8faf5 0%, #f0f3ea 100%);">
+              <div class="position-absolute top-0 end-0 opacity-10" style="font-size: 120px; margin: -30px -30px;">
+                <i class="fa-solid fa-leaf text-forest"></i>
+              </div>
+              <div class="icon-box mb-4 position-relative z-3">
+                <div class="d-inline-flex align-items-center justify-content-center rounded-circle"
+                  style="width: 70px; height: 70px; background: linear-gradient(135deg, #2d5016, #4a7c2c);">
+                  <i class="fa-solid fa-leaf text-white fs-2"></i>
+                </div>
+              </div>
+              <h4 class="fw-bold text-forest mb-3 fs-5">Misión Consciente</h4>
+              <p class="text-dark-muted mb-0 lh-lg" style="font-size: 0.95rem;">Transformar pan reutilizado en cerveza
+                artesanal de calidad, combinando innovación, sustentabilidad y tradición para ofrecer una experiencia
+                única que promueva el aprovechamiento responsable de los recursos y genere conciencia sobre el valor de
+                las segundas oportunidades.</p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div
+              class="card h-100 border-0 shadow p-4 p-xl-5 card-hover position-relative overflow-hidden transition-all"
+              style="border-left: 5px solid #c4930b; background: linear-gradient(135deg, #fdfbf7 0%, #faf8f3 100%);">
+              <div class="position-absolute top-0 end-0 opacity-10" style="font-size: 120px; margin: -30px -30px;">
+                <i class="fa-solid fa-eye text-gold"></i>
+              </div>
+              <div class="icon-box mb-4 position-relative z-3">
+                <div class="d-inline-flex align-items-center justify-content-center rounded-circle"
+                  style="width: 70px; height: 70px; background: linear-gradient(135deg, #c4930b, #e6b817);">
+                  <i class="fa-solid fa-eye text-white fs-2"></i>
+                </div>
+              </div>
+              <h4 class="fw-bold text-forest mb-3 fs-5">Visión de Futuro</h4>
+              <p class="text-dark-muted mb-0 lh-lg" style="font-size: 0.95rem;">Ser una empresa reconocida a nivel
+                nacional por innovar in la industria cervecera artesanal mediante prácticas sostenibles, destacando por
+                la creación de productos con impacto ambiental y social positivo, inspirando a más empresas y
+                consumidores a adoptar una cultura de aprovechamiento y responsabilidad.</p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div
+              class="card h-100 border-0 shadow p-4 p-xl-5 card-hover position-relative overflow-hidden transition-all"
+              style="border-left: 5px solid #2d5016; background: linear-gradient(135deg, #f8faf5 0%, #f0f3ea 100%);">
+              <div class="position-absolute top-0 end-0 opacity-10" style="font-size: 120px; margin: -30px -30px;">
+                <i class="fa-solid fa-handshake text-forest"></i>
+              </div>
+              <div class="icon-box mb-4 position-relative z-3">
+                <div class="d-inline-flex align-items-center justify-content-center rounded-circle"
+                  style="width: 70px; height: 70px; background: linear-gradient(135deg, #2d5016, #4a7c2c);">
+                  <i class="fa-solid fa-handshake text-white fs-2"></i>
+                </div>
+              </div>
+              <h4 class="fw-bold text-forest mb-4 fs-5">Valores con Alma</h4>
+              <div class="text-start" style="font-size: 0.9rem;">
+                <div class="mb-3 pb-2 border-bottom border-light">
+                  <h6 class="fw-bold text-forest mb-1"><span class="text-gold me-2">1.</span>Sustentabilidad</h6>
+                  <p class="text-dark-muted small mb-0">Cuidado del medio ambiente con aprovechamiento responsable.</p>
+                </div>
+                <div class="mb-3 pb-2 border-bottom border-light">
+                  <h6 class="fw-bold text-forest mb-1"><span class="text-gold me-2">2.</span>Innovación</h6>
+                  <p class="text-dark-muted small mb-0">Transformando ingredientes comunes en experiencias únicas.</p>
+                </div>
+                <div class="mb-3 pb-2 border-bottom border-light">
+                  <h6 class="fw-bold text-forest mb-1"><span class="text-gold me-2">3.</span>Responsabilidad</h6>
+                  <p class="text-dark-muted small mb-0">Actitud consciente con clientes, colaboradores y planeta.</p>
+                </div>
+                <div class="mb-0">
+                  <h6 class="fw-bold text-forest mb-1"><span class="text-gold me-2">4.</span>Calidad e Impacto</h6>
+                  <p class="text-dark-muted small mb-0">Procesos rigurosos bajo altos estándares de higiene y sabor.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="proceso" class="app-section section-dark">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
+            <span class="text-gold fw-bold text-uppercase tracking-wider d-block mb-2">El Arte de la
+              Reutilización</span>
+            <h2 class="fw-bold text-gold display-5 mb-4">GGGGG</h2>
+            <p class="lead text-light-muted"></p>
+            <ul class="list-unstyled mt-4 step-list">
+              <li class="mb-4 d-flex align-items-start">
+                <span class="step-num me-3 shadow-sm">1</span>
+                <div>
+                  <h5 class="text-gold mb-1">PROCESO</h5>
+                  <p class="text-light-muted mb-0">.</p>
+                </div>
+              </li>
+              <li class="mb-4 d-flex align-items-start">
+                <span class="step-num me-3 shadow-sm">2</span>
+                <div>
+                  <h5 class="text-gold mb-1">PROCESO</h5>
+                  <p class="text-light-muted mb-0">
+                  </p>
+                </div>
+              </li>
+              <li class="mb-4 d-flex align-items-start">
+                <span class="step-num me-3 shadow-sm">3</span>
+                <div>
+                  <h5 class="text-gold mb-1">PROCESO</h5>
+                  <p class="text-light-muted mb-0">
+                    .</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-6 text-center">
+            <div
+              class="ratio ratio-16x9 rounded shadow-lg overflow-hidden border border-3 border-gold dynamic-video mx-auto"
+              style="max-width: 550px;">
+              <video controls poster="cerveza.jpg" class="w-100 h-100">
+                <source src="videos/proceso.mp4" type="video/mp4">
+                Tu navegador no soporta videos.
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="catalogo" class="app-section section-cream">
+      <div class="container">
+        <div class="text-center mb-5">
+          <span class="text-gold fw-bold text-uppercase tracking-wider d-block mb-2">Nuestra Cosecha</span>
+          <h2 class="section-title h1 text-forest mb-2">Nuestras Presentaciones</h2>
+          <div class="title-line"></div>
+          <p class="text-dark-muted fs-5">Elige tu formato ideal. Cada botella reduce el desperdicio alimentario.</p>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+          <div class="col-md-4">
+            <div class="card h-100 product-card border-0 shadow-sm overflow-hidden">
+              <div class="position-relative overflow-hidden img-zoom-container bg-white text-center py-4">
+                <img src="cerveza.jpg" class="product-img rounded-circle border border-2 border-gold"
+                  alt="Cerveza Rubia" style="width: 140px; height: 140px; object-fit: cover;">
+                <span class="badge bg-forest position-absolute top-0 start-0 m-3 px-3 py-2">Miga Blonde Ale</span>
+              </div>
+              <div class="card-body p-4 text-center bg-white">
+                <h5 class="card-title fw-bold text-forest">Botella Individual 330ml</h5>
+                <p class="card-text text-dark-muted text-sm">Notas ligeras a corteza de pan, refrescante y de cuerpo
+                  balanceado. Excelente balance aromático.</p>
+                <h4 class="text-forest fw-bold mb-3 fs-3">$3.50</h4>
+                <button class="btn btn-forest w-100 fw-bold py-2 btn-add-cart" data-id="1"
+                  data-name="Botella Individual 330ml" data-price="3.50">
+                  <i class="fa-solid fa-cart-plus me-2"></i>Añadir al carrito
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card h-100 product-card border-0 shadow-sm overflow-hidden">
+              <div class="position-relative overflow-hidden img-zoom-container bg-white text-center py-4">
+                <img src="cerveza.jpg" class="product-img rounded-circle border border-2 border-gold" alt="Pack de 6"
+                  style="width: 140px; height: 140px; object-fit: cover;">
+                <span
+                  class="badge bg-gold text-dark position-absolute top-0 start-0 m-3 px-3 py-2 fw-bold shadow-sm">Más
+                  Vendido</span>
+              </div>
+              <div class="card-body p-4 text-center bg-white">
+                <h5 class="card-title fw-bold text-forest">Six-Pack Compartir</h5>
+                <p class="card-text text-dark-muted text-sm">Lleva 6 botellas de nuestra receta original en un empaque
+                  ecológico de cartón reciclado.</p>
+                <h4 class="text-forest fw-bold mb-3 fs-3">$19.90</h4>
+                <button class="btn btn-forest w-100 fw-bold py-2 btn-add-cart" data-id="2"
+                  data-name="Six-Pack Compartir" data-price="19.90">
+                  <i class="fa-solid fa-cart-plus me-2"></i>Añadir al carrito
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card h-100 product-card border-0 shadow-sm overflow-hidden">
+              <div class="position-relative overflow-hidden img-zoom-container bg-white text-center py-4">
+                <img src="cerveza.jpg" class="product-img rounded-circle border border-2 border-gold" alt="Growler"
+                  style="width: 140px; height: 140px; object-fit: cover;">
+                <span class="badge bg-danger position-absolute top-0 start-0 m-3 px-3 py-2">Edición Zero Waste</span>
+              </div>
+              <div class="card-body p-4 text-center bg-white">
+                <h5 class="card-title fw-bold text-forest">Growler Retornable 1L</h5>
+                <p class="card-text text-dark-muted text-sm">Envase de vidrio ambarino recargable directamente en
+                  nuestra fábrica o eventos asociados.</p>
+                <h4 class="text-forest fw-bold mb-3 fs-3">$12.00</h4>
+                <button class="btn btn-forest w-100 fw-bold py-2 btn-add-cart" data-id="3"
+                  data-name="Growler Retornable 1L" data-price="12.00">
+                  <i class="fa-solid fa-cart-plus me-2"></i>Añadir al carrito
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="historia" class="app-section section-dark">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
+            <span class="text-gold fw-bold text-uppercase tracking-wider d-block mb-2">Nuestra Raíz</span>
+            <h2 class="fw-bold text-white display-5 mb-4">Una Historia Convertida en Identidad</h2>
+
+            <div class="mb-4 pb-3 border-bottom border-gold border-opacity-25">
+              <h5 class="text-gold mb-2 fs-5 fw-bold">El Significado de Alma de Miga</h5>
+              <p class="text-light-muted lh-lg mb-0">
+                <strong class="text-white">"Alma"</strong> representa la esencia, lo más profundo y valioso de algo. Es
+                lo que le da vida, carácter y propósito.
+                <strong class="text-white">"Miga"</strong> es el corazón del pan, la parte suave, cálida y llena de
+                historia; lo que queda después de cada proceso.
+              </p>
+            </div>
+
+            <div class="mb-4 pb-3 border-bottom border-gold border-opacity-25">
+              <h5 class="text-gold mb-2 fs-5 fw-bold">Rescatando Almas</h5>
+              <p class="text-light-muted lh-lg mb-0">
+                Cuando unimos ambos conceptos, nos referimos a la idea de <strong class="text-white">rescatar el alma
+                  que vive dentro del pan</strong> y transformarla en una nueva experiencia. Cada cerveza está hecha con
+                historias de panaderías tradicionales y el ingenio de no desperdiciar.
+              </p>
+            </div>
+
+            <div>
+              <h5 class="text-gold mb-2 fs-5 fw-bold">De lo Cotidiano a lo Extraordinario</h5>
+              <p class="text-light-muted lh-lg mb-0">
+                Es darle una <strong class="text-white">segunda vida a algo cotidiano y convertirlo en algo
+                  extraordinario</strong>. No es solo una cerveza, es una filosofía completa de reinvención, respeto y
+                transformación circular.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="card border-0 shadow-lg overflow-hidden"
+              style="background: linear-gradient(135deg, #f8faf5 0%, #f0f3ea 100%); border-left: 6px solid #c4930b;">
+              <div class="p-4 p-md-5">
+                <div class="mb-4">
+                  <div class="d-inline-flex align-items-center justify-content-center rounded-circle p-3"
+                    style="width: 70px; height: 70px; background: linear-gradient(135deg, #c4930b, #e6b817);">
+                    <i class="fa-solid fa-book text-white fs-3"></i>
+                  </div>
+                </div>
+                <h4 class="fw-bold text-forest mb-3">Historias en Cada Botella</h4>
+                <p class="text-dark-muted lh-lg mb-4">
+
+                </p>
+                <div class="row g-3">
+                  <div class="col-6">
+                    <div class="bg-white p-3 rounded-3 text-center border border-gold border-opacity-25 shadow-sm">
+                      <i class="fa-solid fa-bread-slice text-gold fs-4 mb-2 d-block"></i>
+                      <small class="fw-bold text-forest">Segunda Vida</small>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="bg-white p-3 rounded-3 text-center border border-gold border-opacity-25 shadow-sm">
+                      <i class="fa-solid fa-handshake text-gold fs-4 mb-2 d-block"></i>
+                      <small class="fw-bold text-forest">Tradición Local</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ubicacion" class="app-section section-cream">
+      <div class="container">
+        <div class="text-center max-w-xl mx-auto mb-5">
+          <span class="text-gold fw-bold text-uppercase tracking-wider d-block mb-2">Encuéntranos</span>
+          <h2 class="section-title h1 text-forest mb-2">Nuestra Ubicación</h2>
+          <div class="title-line"></div>
+          <p class="text-dark-muted fs-5">Visítanos en Ixtapaluca, Estado de México</p>
+        </div>
+
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-5">
+            <div class="card h-100 border-0 shadow-lg p-4 p-md-5 card-hover position-relative overflow-hidden"
+              style="border-left: 6px solid #2d5016; background: linear-gradient(135deg, #f8faf5 0%, #f0f3ea 100%);">
+              <div class="position-absolute top-0 end-0 opacity-10" style="font-size: 150px; margin: -40px -40px;">
+                <i class="fa-solid fa-map-pin text-forest"></i>
+              </div>
+
+              <div class="position-relative z-3">
+                <div class="d-inline-flex align-items-center justify-content-center rounded-circle mb-4 p-3"
+                  style="width: 70px; height: 70px; background: linear-gradient(135deg, #2d5016, #4a7c2c);">
+                  <i class="fa-solid fa-map-pin text-white fs-3"></i>
+                </div>
+
+                <h4 class="fw-bold text-forest mb-4">Dirección Física</h4>
+
+                <div class="mb-4 pb-4 border-bottom border-dark border-opacity-10">
+                  <p class="text-dark-muted mb-2 lh-lg">
+                    <strong class="text-forest d-block mb-2 fs-5">Calle Camino a San Francisco No. 12</strong>
+                    Colonia San Francisco Acuautla<br>
+                    Ixtapaluca, Estado de México<br>
+                    C.P. 56580
+                  </p>
+                </div>
+
+                <div class="row g-3">
+                  <div class="col-6">
+                    <div class="bg-white p-3 rounded-3 border border-gold border-opacity-25 text-center shadow-sm">
+                      <i class="fa-solid fa-phone text-gold fs-5 mb-2 d-block"></i>
+                      <small class="fw-bold text-forest d-block">Teléfono</small>
+                      <small class="text-muted small">+52 XXXXX</small>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="bg-white p-3 rounded-3 border border-gold border-opacity-25 text-center shadow-sm">
+                      <i class="fa-solid fa-envelope text-gold fs-5 mb-2 d-block"></i>
+                      <small class="fw-bold text-forest d-block">Email</small>
+                      <small class="text-muted small">info@almademiga</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-7">
+            <div class="card h-100 border-0 shadow-lg overflow-hidden"
+              style="background: linear-gradient(135deg, #fdfbf7 0%, #faf8f3 100%); border-left: 6px solid #c4930b;">
+              <div class="p-4">
+                <h5 class="fw-bold text-forest mb-3 d-flex align-items-center">
+                  <i class="fa-solid fa-compass text-gold me-2"></i>
+                  Croquis de Accesos y Referencias
+                </h5>
+
+                <div
+                  class="bg-white p-2 rounded-3 mb-3 border border-gold border-opacity-50 shadow-sm text-center card-img-wrapper">
+                  <img src="croquis.jpg" alt="Croquis Detallado Alma de Miga" class="img-fluid rounded croquis-img">
+                </div>
+
+                <div class="alert alert-warning d-flex align-items-start gap-3 mb-0 border-0 py-2"
+                  style="background: rgba(196, 147, 11, 0.1);">
+                  <i class="fa-solid fa-info-circle text-gold fs-5 mt-1 flex-shrink-0"></i>
+                  <div>
+                    <small class="text-dark-muted d-block"><strong>Referencias clave:</strong> A 500m de la Gasolinera
+                      Pemex sobre la Carretera Federal México-Puebla, entrando por el Camino a San Francisco frente al
+                      Terreno baldío.</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto" class="app-section section-cream">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="card border-0 shadow-lg p-4 p-md-5 rounded-4 contact-card bg-white">
+              <div class="text-center mb-4">
+                <span class="text-gold fw-bold text-uppercase tracking-wider d-block mb-2">Contacto</span>
+                <h2 class="fw-bold text-forest h1 mb-2">¿Pedidos Especiales?</h2>
+                <div class="title-line"></div>
+                <p class="text-dark-muted fs-5">Escríbenos y lleva "Alma de Miga" a tu negocio, restaurante o evento
+                  corporativo.</p>
+              </div>
+              <form id="contactForm">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label class="form-label fw-semibold text-forest">Nombre Completo</label>
+                    <input type="text" class="form-control py-2 custom-input" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-semibold text-forest">Correo Electrónico</label>
+                    <input type="email" class="form-control py-2 custom-input" required>
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label fw-semibold text-forest">Asunto</label>
+                    <input type="text" class="form-control py-2 custom-input" required>
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label fw-semibold text-forest">Mensaje o Detalle de Cotización</label>
+                    <textarea class="form-control custom-input" rows="4" required></textarea>
+                  </div>
+                  <div class="col-12 text-center mt-4">
+                    <button type="submit" class="btn btn-forest btn-lg px-5 fw-bold text-uppercase shadow-sm">Enviar
+                      Mensaje</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-dark text-white py-4 border-top border-gold border-3">
+    <div class="container text-center">
+      <p class="mb-1 fw-bold text-gold tracking-wider">ALMA DE MIGA — CERVEZA ARTESANAL SUSTENTABLE</p>
+      <p class="text-light-muted text-sm mb-3">El valor de una segunda oportunidad.</p>
+      <div class="d-flex justify-content-center gap-4 mb-3 fs-4">
+        <a href="#" class="text-white hover-gold transition-all"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="text-white hover-gold transition-all"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#" class="text-success hover-gold transition-all"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+      <p class="text-muted text-xs mb-0">&copy; 2026 Alma de Miga. Proyecto para Concurso de Marketing Digital.</p>
+    </div>
+  </footer>
+
+  <div class="modal fade" id="cartModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 shadow-lg">
+        <div class="modal-header bg-forest text-white">
+          <h5 class="modal-title fw-bold"><i class="fa-solid fa-basket-shopping me-2"></i>Tu Pedido actual</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id="cart-items-container"></div>
+          <hr>
+          <div class="d-flex justify-content-between align-items-center fw-bold fs-5 text-forest">
+            <span>Total de compra:</span>
+            <span id="cart-total">$0.00</span>
+          </div>
+        </div>
+        <div class="modal-footer d-flex flex-column gap-2 border-0">
+          <button class="btn btn-gold w-100 fw-bold py-3 text-uppercase shadow-sm" id="btn-checkout"><i
+              class="fa-solid fa-whatsapp me-2"></i>Confirmar pedido por WhatsApp</button>
+          <button class="btn btn-outline-secondary w-100 btn-sm text-uppercase" id="btn-clear-cart">Vaciar
+            Carrito</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

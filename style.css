@@ -1,0 +1,302 @@
+/* VARIABLES COMPARTIDAS - IDENTIDAD VISUAL DEL LOGO */
+:root {
+  --bg-forest: #0B331A;
+  /* Verde bosque profundo del logo */
+  --bg-gold: #D4AF37;
+  /* Dorado metálico oficial */
+  --bg-cream: #FDFBF7;
+  /* Tono crema premium estilo miga de pan */
+  --text-dark: #1A1A1A;
+  /* Texto principal de alta legibilidad */
+  --text-dark-muted: #444444;
+  /* Gris oscuro para descripciones */
+  --text-light-muted: #E2EFE5;
+  /* Hueso/Verde claro sobre fondos oscuros */
+  --transition-speed: 0.35s;
+  /* Velocidad de cambio de vista */
+}
+
+/* Base de la Aplicación */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-cream);
+  color: var(--text-dark);
+}
+
+/* Contenedor wrapper para remover el desborde o caída de contenido */
+.content-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - 76px);
+  background-color: var(--bg-cream);
+}
+
+/* SISTEMA MULTI-ESTACIÓN DINÁMICO (PANELES LIMPIOS) */
+.app-section {
+  display: none;
+  width: 100%;
+  min-height: calc(100vh - 76px);
+  padding: 30px 0;
+  /* Padding controlado para centrar el contenido perfectamente */
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity var(--transition-speed) ease-out, transform var(--transition-speed) ease-out;
+  box-sizing: border-box;
+}
+
+/* Clase desencadenada mediante JS */
+.app-section.active-section {
+  display: flex !important;
+  align-items: center;
+  /* Centrado vertical exacto en viewport */
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* MANEJO DE ENTORNOS Y CONTRASTES */
+.section-dark {
+  background-color: var(--bg-forest) !important;
+  color: #ffffff !important;
+}
+
+.section-cream {
+  background-color: var(--bg-cream) !important;
+  color: var(--text-dark) !important;
+}
+
+/* Tipografías Legibles */
+.text-dark-muted {
+  color: var(--text-dark-muted) !important;
+}
+
+.text-light-muted {
+  color: var(--text-light-muted) !important;
+}
+
+/* NAVBAR */
+.navbar {
+  background-color: #ffffff !important;
+  border-bottom: 3px solid var(--bg-gold);
+  z-index: 1000;
+  padding: 10px 0;
+}
+
+.logo-nav {
+  height: 44px;
+  width: 44px;
+  object-fit: cover;
+}
+
+.nav-link {
+  color: var(--bg-forest) !important;
+  font-weight: 700;
+  margin: 0 6px;
+  position: relative;
+  transition: all 0.25s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 3px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--bg-gold);
+  transition: width 0.25s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-link.active {
+  color: var(--bg-gold) !important;
+}
+
+/* IMÁGENES DINÁMICAS */
+.hero-img {
+  max-width: 80%;
+  height: auto;
+  animation: floatAnimation 4s ease-in-out infinite;
+}
+
+/* CROQUIS DE MAPA AJUSTADO */
+.card-img-wrapper {
+  overflow: hidden;
+  max-height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.croquis-img {
+  max-height: 360px;
+  width: 100%;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+}
+
+.croquis-img:hover {
+  transform: scale(1.04);
+}
+
+/* BOTONES PREMIUM */
+.btn-gold {
+  background-color: var(--bg-gold) !important;
+  color: var(--bg-forest) !important;
+  border: 2px solid var(--bg-gold) !important;
+  transition: all 0.3s ease;
+}
+
+.btn-gold:hover {
+  background-color: transparent !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+}
+
+.btn-outline-light-custom {
+  background-color: transparent !important;
+  color: #ffffff !important;
+  border: 2px solid #ffffff !important;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-light-custom:hover {
+  background-color: #ffffff !important;
+  color: var(--bg-forest) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+}
+
+.btn-forest {
+  background-color: var(--bg-forest) !important;
+  color: #ffffff !important;
+  border: 2px solid var(--bg-forest) !important;
+  transition: all 0.3s ease;
+}
+
+.btn-forest:hover {
+  background-color: var(--bg-gold) !important;
+  color: var(--bg-forest) !important;
+  border-color: var(--bg-gold) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(11, 51, 26, 0.2);
+}
+
+.btn-cart {
+  background-color: var(--bg-gold);
+  color: var(--bg-forest);
+  border: none;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-cart:hover {
+  transform: scale(1.12) rotate(8deg);
+}
+
+/* TARJETAS PREMIUM */
+.product-card {
+  background-color: #ffffff !important;
+  transition: all 0.35s ease;
+  border: 1px solid #e6e2da !important;
+  border-top: 5px solid var(--bg-forest) !important;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 30px rgba(11, 51, 26, 0.1) !important;
+}
+
+.product-img {
+  transition: transform 0.4s ease;
+}
+
+.product-card:hover .product-img {
+  transform: scale(1.06);
+}
+
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* LÍNEAS DE ADORNO Y PASOS */
+.title-line {
+  width: 60px;
+  height: 4px;
+  background-color: var(--bg-gold);
+  margin: 10px auto;
+  border-radius: 2px;
+}
+
+.step-num {
+  background-color: var(--bg-gold);
+  color: var(--bg-forest);
+  font-weight: 800;
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.dynamic-video {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.custom-input {
+  border: 1px solid #cccccc;
+  color: var(--text-dark);
+}
+
+.custom-input:focus {
+  border-color: var(--bg-gold);
+  box-shadow: 0 0 0 0.25rem rgba(212, 175, 55, 0.25);
+}
+
+/* ANIMACIÓN FLOTANTE DEL HERO */
+@keyframes floatAnimation {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* utilidades */
+.text-sm {
+  font-size: 0.88rem;
+}
+
+.text-xs {
+  font-size: 0.76rem;
+}
+
+.transition-all {
+  transition: all 0.25s ease;
+}
