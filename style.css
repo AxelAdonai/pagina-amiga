@@ -837,15 +837,43 @@ body {
 
 @media (max-width: 768px) {
   .age-modal .display-5 {
-    font-size: 2rem;
+    font-size: 1.8rem;
+  }
+
+  .age-modal .lead,
+  .age-modal .text-dark-muted,
+  .age-modal .age-right .fs-5 {
+    font-size: 0.95rem;
   }
 
   .age-modal .age-left {
-    padding: 2.5rem 1.5rem;
+    padding: 2rem 1rem;
   }
 
   .age-modal .age-right {
-    padding: 2rem 1.25rem;
+    padding: 1.5rem 1rem;
+  }
+
+  .age-modal .age-hero-icon {
+    font-size: 2.8rem;
+    width: 72px;
+    height: 72px;
+  }
+
+  .age-modal .age-right .alert {
+    font-size: 0.95rem;
+    padding: 0.9rem 1rem;
+  }
+
+  .age-modal .d-flex.gap-3 {
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  .age-modal .btn-lg {
+    width: 100%;
+    padding-top: 0.85rem;
+    padding-bottom: 0.85rem;
   }
 }
 
