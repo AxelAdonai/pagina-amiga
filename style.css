@@ -839,6 +839,12 @@ body {
 }
 
 /* Forzar paneles del modal a ocupar la altura completa y bajar botones */
+.age-modal .modal-dialog.modal-fullscreen .modal-content {
+  max-height: 100vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 .age-modal .modal-dialog.modal-fullscreen .modal-content .row {
   min-height: 100vh;
 }
@@ -869,5 +875,17 @@ body {
 
   .age-modal .modal-dialog.modal-fullscreen .modal-content .row {
     min-height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .age-modal .modal-dialog.modal-fullscreen .modal-content {
+    max-height: 100vh;
+    overflow-y: auto;
+  }
+
+  .age-modal .age-right {
+    justify-content: flex-start;
+    padding-bottom: 2rem;
   }
 }
