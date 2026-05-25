@@ -732,6 +732,17 @@ body {
 .age-modal .modal-content {
   background: linear-gradient(180deg, #ffffff 0%, #f7f3e8 100%);
   border-radius: 14px;
+  max-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.age-modal .modal-body {
+  height: 100vh;
+  min-height: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
 }
 
 .age-modal .age-left {
@@ -841,9 +852,7 @@ body {
 /* Forzar paneles del modal a ocupar la altura completa y bajar botones */
 .age-modal .modal-dialog.modal-fullscreen .modal-content {
   max-height: calc(100vh - 1rem);
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  touch-action: pan-y;
+  overflow: visible;
 }
 
 .age-modal .modal-dialog.modal-fullscreen .modal-content .row {
