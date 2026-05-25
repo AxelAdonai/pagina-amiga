@@ -840,25 +840,25 @@ body {
 
 /* Forzar paneles del modal a ocupar la altura completa y bajar botones */
 .age-modal .modal-dialog.modal-fullscreen .modal-content {
-  max-height: 100vh;
+  max-height: calc(100vh - 1rem);
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
 }
 
 .age-modal .modal-dialog.modal-fullscreen .modal-content .row {
-  min-height: 100vh;
+  min-height: auto;
 }
 
 .age-modal .age-left,
 .age-modal .age-right {
-  min-height: 100vh;
+  min-height: auto;
 }
 
 .age-modal .age-right {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* empuja los botones hacia abajo */
 }
 
 .age-modal .age-right .d-flex.gap-3 {
@@ -880,8 +880,9 @@ body {
 
 @media (max-width: 768px) {
   .age-modal .modal-dialog.modal-fullscreen .modal-content {
-    max-height: 100vh;
+    max-height: calc(100vh - 1rem);
     overflow-y: auto;
+    touch-action: pan-y;
   }
 
   .age-modal .age-right {
