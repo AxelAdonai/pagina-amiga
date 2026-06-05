@@ -7,8 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   ageModal.show();
 
   document.getElementById('btn-age-confirm').addEventListener('click', () => {
-    const modal = bootstrap.Modal.getInstance(document.getElementById('ageVerificationModal'));
-    modal.hide();
+    bootstrap.Modal.getInstance(document.getElementById('ageVerificationModal')).hide();
   });
 
   document.getElementById('btn-age-decline').addEventListener('click', () => {
@@ -20,6 +19,9 @@ document.addEventListener('DOMContentLoaded', () => {
   inicializarMundial();
   actualizarCarrito();
   setupCarrito();
+  iniciarFlipCards();
+  iniciarTooltip();
+  iniciarCalculadoraImpacto();
 
   if (!document.querySelector('.app-section.active-section')) {
     navegarA('hero');
@@ -252,4 +254,204 @@ function actualizarCarrito() {
     document.body.classList.toggle('dark-mode', checkbox.checked);
     localStorage.setItem('alma_miga_dark_mode', checkbox.checked);
   });
+})();
+
+// ============================================================
+// DATOS DE INTERÉS - INTERACCIONES DINÁMICAS
+// ============================================================
+
+// Flip cards (al hacer clic)
+function iniciarFlipCards() {
+  document.querySelectorAll('.flip-card').forEach(card => {
+    card.addEventListener('click', function (e) {
+      e.stopPropagation();
+      this.classList.toggle('flipped');
+    });
+  });
+}
+
+// Tooltip interactivo
+function iniciarTooltip() {
+  const tooltipBtn = document.getElementById('curiosityTooltip');
+  const tooltipBox = document.getElementById('tooltipBox');
+  if (!tooltipBtn || !tooltipBox) return;
+
+  let timeoutId;
+  tooltipBtn.addEventListener('mouseenter', () => {
+    clearTimeout(timeoutId);
+    tooltipBox.style.display = 'block';
+  });
+  tooltipBtn.addEventListener('mouseleave', () => {
+    timeoutId = setTimeout(() => { tooltipBox.style.display = 'none'; }, 200);
+  });
+  tooltipBox.addEventListener('mouseenter', () => clearTimeout(timeoutId));
+  tooltipBox.addEventListener('mouseleave', () => { tooltipBox.style.display = 'none'; });
+}
+
+// ============================================================
+// CALCULADORA DE IMPACTO PERSONAL
+// ============================================================
+document.addEventListener("DOMContentLoaded", function () {
+  // 1. Referencias a los elementos de la interfaz
+  const btnMinus = document.getElementById("qty-minus");
+  const btnPlus = document.getElementById("qty-plus");
+  const qtyValue = document.getElementById("qty-value");
+  const resPan = document.getElementById("res-pan");
+  const resBolillo = document.getElementById("res-bolillo");
+
+  // 2. Factores de conversión basados en tu receta real
+  const GRAMOS_POR_BOTELLA = 9;
+  const BOLILLOS_POR_BOTELLA = 0.15;
+
+  // 3. Función que calcula y actualiza los textos en pantalla
+  function actualizarCalculadora() {
+    let botellas = parseInt(qtyValue.textContent);
+
+    // Operaciones matemáticas sencillas
+    let totalGramos = botellas * GRAMOS_POR_BOTELLA;
+    let totalBolillos = botellas * BOLILLOS_POR_BOTELLA;
+
+    // Renderizar los resultados con formatos limpios
+    resPan.textContent = `${totalGramos} g`;
+
+    // .toFixed(2) asegura estabilidad con decimales flotantes en JS
+    // parseFloat quita ceros sobrantes a la derecha para que se vea estético (ej: 0.9 en vez de 0.90)
+    resBolillo.textContent = parseFloat(totalBolillos.toFixed(2));
+  }
+
+  // 4. Evento para restar botellas (con límite mínimo de 1)
+  btnMinus.addEventListener("click", function () {
+    let actual = parseInt(qtyValue.textContent);
+    if (actual > 1) {
+      qtyValue.textContent = actual - 1;
+      actualizarCalculadora();
+    }
+  });
+
+  // 5. Evento para sumar botellas
+  btnPlus.addEventListener("click", function () {
+    let actual = parseInt(qtyValue.textContent);
+    qtyValue.textContent = actual + 1;
+    actualizarCalculadora();
+  });
+
+  // Ejecución inicial automática para sincronizar el estado
+  actualizarCalculadora();
+});
+
+// ============================================================
+// CARRUSEL DE TIKTOKS — SECCIÓN PROCESO
+// ============================================================
+(function () {
+  function iniciarCarruselTikTok() {
+    const slides = document.querySelectorAll('.tiktok-slide');
+    const dots = document.querySelectorAll('.tiktok-dot');
+    const btnPrev = document.getElementById('tiktok-prev');
+    const btnNext = document.getElementById('tiktok-next');
+    if (!slides.length || !btnPrev || !btnNext) return;
+
+    let current = 0;
+
+    // Carga el iframe solo cuando el usuario navega a ese slide (lazy)
+    function cargarSlide(idx) {
+      const slide = slides[idx];
+      if (!slide) return;
+      const src = slide.getAttribute('data-src');
+      if (!src || slide.querySelector('iframe')) return;
+      slide.innerHTML = `<iframe src="${src}" allowfullscreen
+        allow="encrypted-media" loading="lazy"
+        style="width:100%;height:100%;border:none;"></iframe>`;
+    }
+
+    function mostrar(idx) {
+      slides.forEach(s => s.classList.remove('active'));
+      dots.forEach(d => d.classList.remove('active'));
+      slides[idx].classList.add('active');
+      dots[idx].classList.add('active');
+      current = idx;
+      cargarSlide(idx);
+    }
+
+    btnNext.addEventListener('click', () => mostrar((current + 1) % slides.length));
+    btnPrev.addEventListener('click', () => mostrar((current - 1 + slides.length) % slides.length));
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => mostrar(parseInt(dot.getAttribute('data-index'))));
+    });
+
+    // Swipe táctil en móvil
+    const track = document.getElementById('tiktok-track');
+    if (track) {
+      let startX = 0;
+      track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+      track.addEventListener('touchend', e => {
+        const diff = startX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) {
+          diff > 0
+            ? mostrar((current + 1) % slides.length)
+            : mostrar((current - 1 + slides.length) % slides.length);
+        }
+      });
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', iniciarCarruselTikTok);
+})();
+
+// ============================================================
+// COUNTDOWN EN TARJETAS DE EVENTOS
+// ============================================================
+(function () {
+  function iniciarEventoCountdowns() {
+    document.querySelectorAll('.evento-countdown').forEach(function (el) {
+      const target = new Date(el.getAttribute('data-target'));
+      if (isNaN(target.getTime())) return;
+
+      const daysEl = el.querySelector('.ev-days');
+      const hoursEl = el.querySelector('.ev-hours');
+      const minsEl = el.querySelector('.ev-mins');
+
+      // Labels de las unidades para cambiarlos dinámicamente
+      const units = el.querySelectorAll('.evento-cd-unit small');
+
+      function update() {
+        const diff = target - Date.now();
+        if (diff <= 0) {
+          if (daysEl) daysEl.textContent = '00';
+          if (hoursEl) hoursEl.textContent = '00';
+          if (minsEl) minsEl.textContent = '00';
+          return;
+        }
+
+        const totalDays = Math.floor(diff / 86400000);
+        const hours = Math.floor((diff % 86400000) / 3600000);
+        const mins = Math.floor((diff % 3600000) / 60000);
+
+        if (totalDays > 30) {
+          // Mostrar meses + días restantes
+          const months = Math.floor(totalDays / 30);
+          const remDays = totalDays % 30;
+          if (daysEl) daysEl.textContent = String(months);
+          if (hoursEl) hoursEl.textContent = String(remDays).padStart(2, '0');
+          if (minsEl) minsEl.textContent = String(hours).padStart(2, '0');
+          if (units[0]) units[0].textContent = months === 1 ? 'mes' : 'meses';
+          if (units[1]) units[1].textContent = 'días';
+          if (units[2]) units[2].textContent = 'hrs';
+        } else {
+          // Menos de 30 días: mostrar días/hrs/min normal
+          if (daysEl) daysEl.textContent = String(totalDays).padStart(2, '0');
+          if (hoursEl) hoursEl.textContent = String(hours).padStart(2, '0');
+          if (minsEl) minsEl.textContent = String(mins).padStart(2, '0');
+          if (units[0]) units[0].textContent = 'días';
+          if (units[1]) units[1].textContent = 'hrs';
+          if (units[2]) units[2].textContent = 'min';
+        }
+      }
+
+      update();
+      setInterval(update, 60000);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', iniciarEventoCountdowns);
 })();
